@@ -1,0 +1,70 @@
+@font-face {
+    font-family: "firestarter";
+    src: url("FIRESTARTER.TTF");
+  }
+  #mainTitle {
+    color: red;
+    text-align: center;
+    font-family: "firestarter";
+  }
+  #navul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+  }
+  #navli {
+    float: left;
+  }
+  li p {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+  li p:hover {
+    background-color: #111;
+  }
+  .postcount {
+    margin-left: 50px;
+    display: flex;
+    justify-content: space-between;
+    max-width: 150px;
+  }
+  form {
+    text-align: center;
+  }
+  input[type="text"] {
+    border: 2px solid red;
+    border-radius: 4px;
+  }
+  textarea {
+    border: 2px solid red;
+    border-radius: 4px;
+  }
+  #NewBlogTitle {
+    color: red;
+    text-align: center;
+    font-family: "firestarter";
+  }
+  #blogList {
+    overflow: scroll;
+    height: 300px;
+  }
+  #PrevList {
+    padding-left: 0;
+    list-style: none;
+  }
+  .postContainer {
+    background-color: lightgray;
+    padding: 15px;
+    font-size: 15px;
+  }
+  .child {
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    max-width: 700px;
+  }
