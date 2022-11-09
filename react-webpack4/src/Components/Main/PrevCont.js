@@ -5,7 +5,7 @@ const PrevCont = ({ post, onButtonClick }) => {
   return (
     <div className="child">
       {/* entire contents in blog post previews */}
-      <button className="postContainer" onClick={onButtonClick(post.id)}>
+      <button className="postContainer" onClick={onButtonClick.bind(this,post.id)}>
         <div>
           Title: {post.get("title")}
           <br />
