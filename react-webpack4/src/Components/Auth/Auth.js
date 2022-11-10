@@ -14,6 +14,7 @@ const AuthModule = () => {
     }
   }, [navigate]);
 
+  // in order to auth, the two options are register a new account/login
   return (
     <div>
       <Link to="/register">

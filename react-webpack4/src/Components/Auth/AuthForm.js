@@ -4,6 +4,7 @@ const AuthForm = ({ user, isLogin, onChange, onSubmit }) => {
 
   return (
     <form onSubmit={onSubmit} autoComplete="off">
+      {/* if user is not logged in, then include more inputs for registration */}
     {!isLogin ? 
     <div>
         <div className="form-group">
@@ -34,6 +35,7 @@ const AuthForm = ({ user, isLogin, onChange, onSubmit }) => {
           />
         </div>{" "}
         </div> : <></>}
+        {/* these are the default inputs */}
         <div>
         <div className="form-group">
           <label>Email</label>

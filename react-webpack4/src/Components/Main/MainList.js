@@ -9,8 +9,8 @@ const MainList = ({ posts, amount }) => {
   const navigate = useNavigate();
 
   function clickHandler(postId) {
-    navigate.push(`/fullpost/${postId}`);
-    console.log();
+    console.log("trying to go to full post");
+    navigate(`/fullpost/${postId}`);
   }
 
   return (

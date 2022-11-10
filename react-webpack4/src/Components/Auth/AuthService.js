@@ -1,6 +1,6 @@
 import Parse from "parse";
 
-// used in auth register component
+// used in auth register component which completes a full registration of user info
 export const createUser = (newUser) => {
   const user = new Parse.User();
 
@@ -20,7 +20,7 @@ export const createUser = (newUser) => {
       alert(`Error: ${error.message}`);
     });
 };
-
+// function that logs in user and awaits success response
 export const loginUser = (currUser) => {
   const user = new Parse.User();
 
@@ -38,7 +38,7 @@ export const loginUser = (currUser) => {
       alert(`Error: ${error.message}`);
     });
 };
-
+// meant to serve as function call which checks whether or not user is authenticated currently
 export const checkUser = () => {
   {return Parse.User.current()?.authenticated;}
 };
