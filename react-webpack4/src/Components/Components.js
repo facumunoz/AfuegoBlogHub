@@ -13,7 +13,10 @@ import {
     Routes,
     Route
   } from "react-router-dom";
+import ProtectedRoute from "../Common/ProtectedRoute.js";
 
+// the following component architecture includes all the possible routes and 
+// the implementation of the protected route method
 const Components = () => {
   return (
     <div>
@@ -24,8 +27,8 @@ const Components = () => {
           <Route path="/register" element={<AuthRegister />} />
           <Route path="/login" element={<AuthLogin />} />
           <Route path="/" exact element={<Main />} />
-          <Route path="/postentry" element={<PostEntry/>} />
-          <Route path="/fullpost/:postId" element={<FullPost />} />
+          <Route path="/postentry" element={<ProtectedRoute path="/" element={PostEntry} />}/>
+          <Route path="/fullpost/:postId" element={<ProtectedRoute path="/" element={FullPost} />} />
         </Routes>
       </Router>
     </div>
