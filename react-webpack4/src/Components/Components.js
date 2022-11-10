@@ -9,26 +9,24 @@ import AuthLogin from "./Auth/AuthLogin.js";
 
 
 import {
-  BrowserRouter as Router,
-  Route,
-  Switch,
-  Redirect
-} from "react-router-dom";
+    BrowserRouter as Router,
+    Routes,
+    Route
+  } from "react-router-dom";
 
 const Components = () => {
   return (
     <div>
       <Router>
         <Nav />
-        <Switch>
-          <Route path="/auth" exact component={AuthModule} />
-          <Route path="/register" component={AuthRegister} />
-          <Route path="/login" component={AuthLogin} />
-          <Route path="/" exact component={Main} />
-          <Route path="/postentry" component={PostEntry} />
-          <Route path="/fullpost/:postId" component={FullPost} />
-          <Redirect to="/auth" />
-        </Switch>
+        <Routes>
+          <Route path="/auth" exact element={<AuthModule />} />
+          <Route path="/register" element={<AuthRegister />} />
+          <Route path="/login" element={<AuthLogin />} />
+          <Route path="/" exact element={<Main />} />
+          <Route path="/postentry" element={<PostEntry/>} />
+          <Route path="/fullpost/:postId" element={<FullPost />} />
+        </Routes>
       </Router>
     </div>
   );

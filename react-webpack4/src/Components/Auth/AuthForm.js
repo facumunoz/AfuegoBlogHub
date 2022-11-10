@@ -1,9 +1,11 @@
 import React from "react";
 
-const AuthForm = ({ user, onChange, onSubmit }) => {
+const AuthForm = ({ user, isLogin, onChange, onSubmit }) => {
+
   return (
+    <form onSubmit={onSubmit} autoComplete="off">
+    {!isLogin ? 
     <div>
-      <form onSubmit={onSubmit} autoComplete="off">
         <div className="form-group">
           <label>First Name</label>
           <br />
@@ -31,6 +33,8 @@ const AuthForm = ({ user, onChange, onSubmit }) => {
             required
           />
         </div>{" "}
+        </div> : <></>}
+        <div>
         <div className="form-group">
           <label>Email</label>
           <br />
@@ -63,8 +67,8 @@ const AuthForm = ({ user, onChange, onSubmit }) => {
             Submit
           </button>
         </div>
-      </form>
     </div>
+  </form>
   );
 };
 
