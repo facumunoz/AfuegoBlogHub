@@ -5,6 +5,7 @@ import Nav from "./Nav/Nav.js";
 import FullPost from "./FullPost/FullPost.js";
 import AuthModule from "./Auth/Auth.js";
 import AuthRegister from "./Auth/AuthRegister.js";
+import AuthLogin from "./Auth/AuthLogin.js";
 
 
 import {
@@ -22,7 +23,8 @@ const Components = () => {
         <Switch>
           <Route path="/auth" exact component={AuthModule} />
           <Route path="/register" component={AuthRegister} />
-          {/* <Route path="/" exact component={Main} /> */}
+          <Route path="/login" component={AuthLogin} />
+          <Route path="/" exact component={Main} />
           <Route path="/postentry" component={PostEntry} />
           <Route path="/fullpost/:postId" component={FullPost} />
           <Redirect to="/auth" />

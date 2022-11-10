@@ -17,6 +17,12 @@ const Nav = () => {
             <p>Create</p>
           </Link>
         </li>
+        <li id="navli">
+          {/* link to login register*/}
+          <Link to="/auth">
+            <p>Login/Register</p>
+          </Link>
+        </li>
       </ul>
     </nav>
   );
