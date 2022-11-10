@@ -1,15 +1,15 @@
 import PrevCont from "./PrevCont.js";
 import React from "react";
-import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const MainList = ({ posts, amount }) => {
   // html explanation below:
   // header text, and ul with map call for posts(to use amounts)
   console.log(posts);
-  const history = useHistory();
+  const navigate = useNavigate();
 
   function clickHandler(postId) {
-    history.push(`/fullpost/${postId}`);
+    navigate.push(`/fullpost/${postId}`);
     console.log();
   }
 
