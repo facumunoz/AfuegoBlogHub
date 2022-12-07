@@ -1,6 +1,7 @@
 import React from "react";
 import Main from "./Main/Main.js";
 import PostEntry from "./PostEntry/PostEntry.js";
+import Profile from "./Profile/Profile.js"
 import Nav from "./Nav/Nav.js";
 import FullPost from "./FullPost/FullPost.js";
 import AuthModule from "./Auth/Auth.js";
@@ -18,6 +19,7 @@ import ProtectedRoute from "../Common/ProtectedRoute.js";
 // the following component architecture includes all the possible routes and 
 // the implementation of the protected route method
 const Components = () => {
+
   return (
     <div>
       <Router>
@@ -27,6 +29,7 @@ const Components = () => {
           <Route path="/register" element={<AuthRegister />} />
           <Route path="/login" element={<AuthLogin />} />
           <Route path="/" exact element={<Main />} />
+          <Route path="/profile" element={<ProtectedRoute path="/" element={Profile} />} />
           <Route path="/postentry" element={<ProtectedRoute path="/" element={PostEntry} />}/>
           <Route path="/fullpost/:postId" element={<ProtectedRoute path="/" element={FullPost} />} />
         </Routes>
