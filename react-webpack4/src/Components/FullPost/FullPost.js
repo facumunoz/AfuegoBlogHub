@@ -2,10 +2,31 @@ import "../../styles.css";
 import React, { useEffect, useState } from "react";
 import { getAllComments } from "../../Services/CommentsService.js";
 import { useParams } from "react-router-dom";
+import Parse from "parse";
+import FullPostCont from "./FullPostCont.js";
 
 const FullPost = () => {
-  //const location = useLocation();
-  //const post = location.state?.post;
+
+  const { postId } = useParams();
+
+  var options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+
+  const [title, setTitle] = useState("");
+  const [subtitle, setSubtitle] = useState("");
+  const [datePosted, setDate] = useState("");
+  const [username, setUser] = useState("");
+  const [entryText, setText] = useState("");
+
+  const Posts = Parse.Object.extend("BlogPosts");
+  const query = new Parse.Query(Posts);
+  query.get(postId).then((results) => {
+    // returns array of Blog Post objects
+    setTitle(results.get("title"));
+    setSubtitle(results.get("subtitle"));
+    setDate(results.get("datePosted").toLocaleDateString("en-US", options));
+    setUser(results.get("username"));
+    setText(results.get("entryText"));
+  });
 
   const [comments, setComments] = useState([]);
   // useEffect utility to yank posts
@@ -29,9 +50,7 @@ const FullPost = () => {
   // We intend to display the full content of a particular post in full page view, but we struggled to pass the post object properly and read its data
   return (
     <div>
-      <h1 id="mainTitle">Full Post</h1>
-      <h3>Title of the post:</h3>
-      <br />
+      <FullPostCont title={title} subTitle={subtitle} date={datePosted} author={username} text={entryText} />
       {/* This is a list of all currently avaulable comments*/}
       <h3>Comments:</h3>
       <div>
