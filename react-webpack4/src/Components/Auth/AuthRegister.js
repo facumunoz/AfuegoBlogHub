@@ -1,8 +1,12 @@
 import React, { useEffect, useState } from "react";
-import { createUser } from "./AuthService";
+import { checkUser, createUser } from "./AuthService";
 import AuthForm from "./AuthForm";
+import { useNavigate } from "react-router-dom";
 
 const AuthRegister = () => {
+
+  const navigate = useNavigate();
+
   const [newUser, setNewUser] = useState({
     firstName: "",
     lastName: "",
@@ -13,6 +17,14 @@ const AuthRegister = () => {
   // flags in the state to watch for add/remove updates
   const [add, setAdd] = useState(false);
 
+  // block if user already logged in
+  useEffect(() => {
+    if (checkUser()) {
+      alert("You are already logged in");
+      navigate("/");
+    }
+  }, [navigate]);
+
   // useEffect that run when changes are made to the state variable flags
   useEffect(() => {
     if (newUser && add) {
@@ -21,6 +33,7 @@ const AuthRegister = () => {
           alert(
             `${userCreated.get("firstName")}, you successfully registered!`
           );
+          navigate("/");
         }
         // TODO: redirect user to main app
         setAdd(false);
