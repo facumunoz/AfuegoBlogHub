@@ -23,7 +23,15 @@ const Nav = () => {
             <p>Login/Register</p>
           </Link>
         </li>
+        <li id="navli">
+          {/* link to login register*/}
+          <Link to="/profile">
+            <p>My Profile</p>
+          </Link>
+        </li>
+        {/* <img src="../../profileIcon.png" id="profilepic" alt=""></img> */}
       </ul>
+      
     </nav>
   );
 };

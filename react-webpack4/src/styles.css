@@ -68,3 +68,7 @@
     justify-content: space-between;
     max-width: 700px;
   }
+  #profilepic{
+    height: 25px;
+    width: 25px;
+  }
