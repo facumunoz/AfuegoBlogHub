@@ -36,7 +36,9 @@ const FullPost = () => {
     });
   }, []);
 
-  let items = comments.map((comment) => (
+  let items = comments.filter(comment => comment.get("blogPost").id === postId);
+
+  items = items.map((comment) => (
     <div>
       <span>
         <li key={comment.objectId}>
