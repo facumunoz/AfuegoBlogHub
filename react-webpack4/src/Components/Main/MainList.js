@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 const MainList = ({ posts, amount }) => {
   // html explanation below:
   // header text, and ul with map call for posts(to use amounts)
-  console.log(posts);
+  
   const navigate = useNavigate();
 
   function clickHandler(postId) {
