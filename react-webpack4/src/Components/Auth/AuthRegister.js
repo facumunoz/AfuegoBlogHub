@@ -45,6 +45,7 @@ const AuthRegister = () => {
     e.preventDefault();
     console.log(e.target);
     const { name, value: newValue } = e.target;
+    console.log(name);
     console.log(newValue);
 
     setNewUser({
