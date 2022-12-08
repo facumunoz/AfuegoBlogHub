@@ -42,3 +42,17 @@ export const loginUser = (currUser) => {
 export const checkUser = () => {
   {return Parse.User.current()?.authenticated;}
 };
+
+export const logoutUser = async function () {
+  try {
+    await Parse.User.logOut();
+    // To verify that current user is now empty, currentAsync can be used
+    const currentUser = await Parse.User.current();
+    if (currentUser === null) {
+      return true;
+    }
+  } catch (error) {
+    alert(`Error! ${error.message}`);
+    return false;
+  }
+};
