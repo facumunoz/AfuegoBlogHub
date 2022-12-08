@@ -38,13 +38,13 @@ const Profile = () => {
             const User = Parse.Object.extend(Parse.User);
             const query = new Parse.Query(User);
             query.get(Parse.User.current()?._getId()).then((result)=> {
-                if(newSocials.instagram != ""){
+                if(newSocials.instagram !== ""){
                     result.set("instagram", newSocials.instagram);
                 }
-                if(newSocials.linkedin != ""){
+                if(newSocials.linkedin !== ""){
                     result.set("linkedin", newSocials.linkedin);
                 }
-                if(newSocials.youtube != ""){
+                if(newSocials.youtube !== ""){
                     result.set("youtube", newSocials.youtube);
                 }
                 try {
@@ -80,9 +80,9 @@ const Profile = () => {
     // Title, some explanatory text, interactive amount of posts ui
     return (
         <div>
-        <h1 id="mainTitle">{Parse.User.current()?.get("firstName")} {Parse.User.current()?.get("lastName")} </h1>
-        <p>Email: {Parse.User.current()?.getEmail()}</p>
-        <h4>Socials linked:</h4>
+        <h1 id="profileTitle">{Parse.User.current()?.get("firstName")} {Parse.User.current()?.get("lastName")} </h1>
+        <p id="profileDetails">{Parse.User.current()?.getEmail()}</p>
+        <h4 id="profileInfo">Socials linked:</h4>
         <Container>
             <div className="social-media-icons d-flex justify-content-evenly">
                 <a onClick={()=>{window.location.replace(Parse.User.current()?.get("instagram"))}}>
@@ -97,8 +97,8 @@ const Profile = () => {
             </div>
         </Container>
         <div>
-            <h4>Edit socials:</h4>
-            <p>Please begin all urls with 'https://'. Enter a space if you wish to clear current linked account.</p>
+            <h4 id="profileInfo">Edit socials:</h4>
+            <p id="profileSection">Please begin all urls with 'https://'. Enter a space if you wish to clear current linked account.</p>
             <AuthSocials
                 socials={newSocials}
                 onChange={onChangeHandler}

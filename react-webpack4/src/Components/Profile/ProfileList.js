@@ -18,7 +18,7 @@ const ProfileList = ({ posts, amount }) => {
   return (
     <div id="blogList">
       <hr />
-      Blog Preview list:
+      <h4 id="profileInfo">Blog Preview list:</h4>
       {/* posts currently contain title,author,post content */}
       {/* eventually, they will be formatted nicer and will contain more metadata */}
       {/* 
@@ -33,7 +33,7 @@ const ProfileList = ({ posts, amount }) => {
                 return <div>
                 <span>
                   {/* Using getter for lesson Object to display name */}
-                  <li key={post.id}>
+                  <li id="contList" key={post.id}>
                     {/* This links to the full post view page*/}
                     {/* <Link to={{ pathname: "/fullpost", state: { post: { post } } }}>
                     </Link> */}
@@ -44,7 +44,7 @@ const ProfileList = ({ posts, amount }) => {
             }
         })}
         {console.log(found)}
-        {!found && <p>No posts were found</p>}
+        {!found && <p id="prevList">No posts were found</p>}
       </ul>
       <hr />
     </div>

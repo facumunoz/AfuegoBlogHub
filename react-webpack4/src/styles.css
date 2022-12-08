@@ -6,6 +6,34 @@
     color: red;
     text-align: center;
     font-family: "firestarter";
+    margin-top: 1%;
+  }
+  #profileTitle {
+    color: red;
+    text-align: left;
+    margin-left: 5%;
+    font-family: "firestarter";
+  }
+  #profileInfo {
+    color: darkred;
+    text-align: left;
+    margin-left: 10%;
+  }
+  #mainInfo {
+    color: darkred;
+    text-align: left;
+    margin-left: 10%;
+    margin-bottom:1%;
+  }
+  #profileDetails {
+    color: red;
+    text-align: left;
+    margin-left: 7%;
+  }
+  #profileSection {
+    color: red;
+    text-align: left;
+    margin-left: 15%;
   }
   #navul {
     list-style-type: none;
@@ -28,6 +56,32 @@
   #navli-right {
     float: right;
   }
+  #submitButton {
+    background-color:red;
+    border-radius: 4px;
+    color:black;
+    margin: auto;
+    display:flex;
+    justify-content: center;
+    margin-top: 1%;
+  }
+  #authButtons {
+    background-color:red;
+    border-radius: 4px;
+    color:black;
+    margin: auto;
+    display:flex;
+    justify-content: center;
+    margin-top: 2.5%;
+    padding: 10px;
+    font-size: 20px;
+  }
+  #errorText {
+    color: darkred;
+    text-align: center;
+    margin-top: 5%;
+    margin-bottom: 5%;
+  }
   li p {
     display: block;
     color: white;
@@ -46,8 +100,10 @@
   }
   form {
     text-align: center;
+    margin:auto;
+    width: 50%;
   }
-  input[type="text"] {
+  input {
     border: 2px solid red;
     border-radius: 4px;
   }
@@ -60,9 +116,13 @@
     text-align: center;
     font-family: "firestarter";
   }
+  #prevList {
+    text-align: left;
+    margin-left: 15%;
+  }
   #blogList {
     overflow: scroll;
-    height: 300px;
+    height: 500px;
   }
   #PrevList {
     padding-left: 0;
@@ -84,6 +144,30 @@
     width: 25px;
   }
   .social-media-icons a {
-    color: black;
+    color: red;
     font-size: 2rem;
+  }
+  .form-control form {
+    width: 50%;
+    color:red;
+  }
+  #input {
+    width: 50%;
+    margin: auto;
+    border: 2px solid red;
+    border-radius: 4px;
+  }
+  #inputLabel {
+    color:red;
+  }
+  #amount {
+    margin-left: 20%;
+  }
+  #contList {
+    margin-top: 1%;
+    display: inline-block;
+  }
+  ul {
+    text-align: center;
+    margin:center;
   }

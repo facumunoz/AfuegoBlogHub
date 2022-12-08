@@ -46,7 +46,7 @@ const AuthSocials = ({ socials, onChange, onSubmit }) => {
           />
         </div>
         <div className="form-group">
-          <button type="submit" className="btn btn-primary" onSubmit={onSubmit}>
+          <button type="submit" id="submitButton" className="btn btn-primary" onSubmit={onSubmit}>
             Submit
           </button>
         </div>
