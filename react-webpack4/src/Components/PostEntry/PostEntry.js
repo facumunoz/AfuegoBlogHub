@@ -1,34 +1,81 @@
-import { useEffect } from "react";
-const Main = () => {
-  useEffect(() => {}, []);
+import "../../styles.css";
+import React, { useEffect, useState } from "react";
+import Parse from "parse";
+import PostEntryForm from "./PostEntryForm.js";
+import { useNavigate } from "react-router-dom";
 
+const PostEntry = () => {
+
+  const navigate = useNavigate();
+
+  const [newPost, setNewPost] = useState({
+    newTitle: "",
+    newSubtitle: "",
+    newContent: ""
+  });
+
+  const [add, setAdd] = useState(false);
+ 
+
+  // useEffect that run when changes are made to the state variable flags
+  useEffect(() => {
+    if (newPost && add) {
+      //Creating new Post
+      const BlogPostObj = Parse.Object.extend("BlogPosts");
+      const blogPostObj = new BlogPostObj();
+      blogPostObj.set("datePosted", new Date());
+      blogPostObj.set("dateLastEdit", new Date());
+      blogPostObj.set("title", newPost.newTitle);
+      blogPostObj.set("subtitle", newPost.newSubtitle);
+      const firstName = Parse.User.current()?.get("firstName");
+      const lastName = Parse.User.current()?.get("lastName");
+      const fullName = firstName + " " + lastName;
+      blogPostObj.set("username", Parse.User.current()?.getEmail());
+      blogPostObj.set("AuthorName", fullName);
+      blogPostObj.set("entryText", newPost.newContent);
+      blogPostObj.save()
+      .then((newPost) => {
+        console.log(newPost);
+        console.log(newPost.id);
+        // Success
+        navigate(`/fullpost/${newPost.id}`);
+      }, (error) => {
+        // Save fails
+        alert('Failed to create new post');
+        console.log(error.message);
+      });
+      setAdd(false);
+    }
+  }, [newPost, add, navigate]);
+
+
+  const onChangeHandler = (e) => {
+    e.preventDefault();
+    console.log(e.target);
+    const { name, value: newValue } = e.target;
+    console.log(name);
+    console.log(newValue);
+
+    setNewPost({
+      ...newPost,
+      [name]: newValue
+    });
+  };
+
+  const onSubmitHandler = (e) => {
+    e.preventDefault();
+    console.log("submitted: ", e.target);
+    setAdd(true);
+  };
   return (
     <div>
-      {/* titling elements */}
-      <h1 id="NewBlogTitle">New Blog Entry</h1>
-      <h3 id="subheadPost">Post a new Afuego Blog Entry.</h3>
-      {/* forms and their descriptions*/}
-      <form action="">
-        {/* blog primary title */}
-        <label htmlFor="title">Title:</label>
-        <br />
-        <input type="text" id="title" name="title" />
-        <br />
-        {/* blog subtitle */}
-        <label htmlFor="subtitle">Subtitle:</label>
-        <br />
-        <input type="text" id="subtitle" name="subtitle" />
-        <br />
-        {/* main blog post content */}
-        <label htmlFor="content">Content:</label>
-        <br />
-        <textarea id="content" name="content" rows="4" cols="50" />
-        <br />
-        {/* button */}
-        <input type="submit" value="Submit" />
-      </form>
+      <PostEntryForm
+        content={newPost}
+        onChange={onChangeHandler}
+        onSubmit={onSubmitHandler}
+      />
     </div>
   );
 };
 
-export default Main;
+export default PostEntry;
