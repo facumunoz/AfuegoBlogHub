@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { checkUser } from "./AuthService";
+import './../../styles.css';
 
 const AuthModule = () => {
   const navigate = useNavigate();
@@ -18,12 +19,12 @@ const AuthModule = () => {
   return (
     <div>
       <Link to="/register">
-        <button>Register</button>
+        <button id="authButtons">Register</button>
       </Link>
       <br />
       <br />
       <Link to="/login">
-        <button>Login</button>
+        <button id="authButtons">Login</button>
       </Link>
     </div>
   );

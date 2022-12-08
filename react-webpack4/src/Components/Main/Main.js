@@ -37,9 +37,9 @@ const Main = () => {
   return (
     <div>
       <h1 id="mainTitle">Afuego Blog Hub</h1>
-      How many blog previews do you want to see?
-      <br />
-      <div className="postcount">
+      <br/>
+      <h5 id="mainInfo">How many blog previews do you want to see?</h5>
+      <div id="amount"className="postcount">
         <button onClick={decrementCount}>-</button>
         {amount}
         <button onClick={incrementCount}>+</button>
