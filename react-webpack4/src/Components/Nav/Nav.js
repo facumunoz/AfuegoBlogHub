@@ -1,7 +1,10 @@
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { logoutUser } from "../Auth/AuthService.js";
 
 // the code below is the nav bar on top of the screen
 const Nav = () => {
+  const navigate = useNavigate();
   return (
     <nav>
       <ul id="navul">
@@ -28,6 +31,17 @@ const Nav = () => {
           <Link to="/profile">
             <p>My Profile</p>
           </Link>
+        </li>
+        <li id="navli-right">
+          {/* link to login register*/}
+          <button id="logout-button" onClick={()=> {
+            const loggedOut = logoutUser();
+            if (loggedOut) {
+              navigate('/');
+            }
+          }}>
+            <p>Log Out</p>
+          </button>
         </li>
         {/* <img src="../../profileIcon.png" id="profilepic" alt=""></img> */}
       </ul>
