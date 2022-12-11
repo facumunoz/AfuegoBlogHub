@@ -30,9 +30,9 @@ const AuthLogin = () => {
           alert(
             `${userLoggedIn.get("firstName")}, you successfully logged in!`
           );
+          // Redirecting user to home after logging in
           navigate("/");
         }
-        // TODO: redirect user to main app
         setAdd(false);
       });
     }

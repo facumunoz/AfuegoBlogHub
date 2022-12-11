@@ -1,12 +1,12 @@
 import Parse from "parse";
 /* SERVICE FOR PARSE SERVER OPERATIONS */
 
-// READ operation - get all lessons in Parse class Lesson
+// READ operation - get all comments in Parse class comments
 export const getAllComments = () => {
   const Comments = Parse.Object.extend("Comments");
   const query = new Parse.Query(Comments);
   return query.find().then((results) => {
-    // returns array of Blog Post objects
+    // returns array of comment objects
     return results;
   });
 };

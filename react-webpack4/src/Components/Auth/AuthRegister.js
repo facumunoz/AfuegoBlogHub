@@ -33,9 +33,9 @@ const AuthRegister = () => {
           alert(
             `${userCreated.get("firstName")}, you successfully registered!`
           );
+          // Redirecting the user to home after registering
           navigate("/");
         }
-        // TODO: redirect user to main app
         setAdd(false);
       });
     }

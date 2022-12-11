@@ -1,5 +1,6 @@
 import React from "react";
 
+// This module contains a form and handles user input for new post entries by allowing to set up values of state variables
 const PostEntryForm = ({ content, onChange, onSubmit }) => {
 
   return (

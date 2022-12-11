@@ -1,7 +1,9 @@
 import React from "react";
 
+// Module for user comments input
 const CommentForm = ({ content, onChange, onSubmit }) => {
 
+    // Setting the appropriate onChange and onSubmit as  well as the data down state variable to save input to 
   return (
     <form onSubmit={onSubmit} autoComplete="off">
     <div>

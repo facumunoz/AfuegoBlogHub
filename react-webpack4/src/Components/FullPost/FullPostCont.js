@@ -1,6 +1,6 @@
 import React from "react";
 
-// This serves as the container for each individual post in the post list
+// This is the stateless container for a blog post in the full post view
 const FullPostCont = ({ title, subTitle, date, author, text }) => {
   return (
     <div >

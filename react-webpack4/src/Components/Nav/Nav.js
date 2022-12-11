@@ -35,7 +35,9 @@ const Nav = () => {
         <li id="navli-right">
           {/* link to login register*/}
           <button id="logout-button" onClick={()=> {
+            // Calling the logout function from authservice
             const loggedOut = logoutUser();
+            // If logout is successful then redirect user to home in case he is in a blocked page as well
             if (loggedOut) {
               navigate('/');
             }
