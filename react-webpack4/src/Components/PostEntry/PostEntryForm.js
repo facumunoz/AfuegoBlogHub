@@ -6,12 +6,12 @@ const PostEntryForm = ({ content, onChange, onSubmit }) => {
     <form onSubmit={onSubmit} autoComplete="off">
     <div>
         <div className="form-group">
-          <label>Title:</label>
+          <label id="inputLabel">Title:</label>
           <br />
           <input
             type="text"
             className="form-control"
-            id="post-title-input"
+            id="input"
             value={content.newTitle}
             onChange={onChange}
             text="text"
@@ -21,12 +21,12 @@ const PostEntryForm = ({ content, onChange, onSubmit }) => {
           />
         </div>
         <div className="form-group">
-          <label>Subtitle:</label>
+          <label id="inputLabel">Subtitle:</label>
           <br />
           <input
             type="text"
             className="form-control"
-            id="post-subtitle-input"
+            id="input"
             value={content.newSubtitle}
             onChange={onChange}
             text="text"
@@ -36,12 +36,12 @@ const PostEntryForm = ({ content, onChange, onSubmit }) => {
           />
         </div>
         <div className="form-group">
-          <label>Post Text:</label>
+          <label id="inputLabel">Post Text:</label>
           <br />
           <input
             type="text"
             className="form-control"
-            id="post-text-input"
+            id="input"
             value={content.newContent}
             onChange={onChange}
             text="text"
@@ -51,7 +51,7 @@ const PostEntryForm = ({ content, onChange, onSubmit }) => {
           />
         </div>
         <div className="form-group">
-          <button type="submit" className="btn btn-primary" onSubmit={onSubmit}>
+          <button id="submitButton" type="submit" className="btn btn-primary" onSubmit={onSubmit}>
             Submit
           </button>
         </div>

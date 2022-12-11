@@ -1,6 +1,7 @@
 import React from "react";
 import { checkUser } from "../Components/Auth/AuthService";
 import AuthModule from "../Components/Auth/Auth.js";
+import './../styles.css';
 
 // You can pass props using the spread operator to throw them on an object if there are too many to break out
 const ProtectedRoute = ({ element: Component, ...rest }) => {
