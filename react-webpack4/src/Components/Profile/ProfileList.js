@@ -21,11 +21,7 @@ const ProfileList = ({ posts, amount }) => {
       <h4 id="profileInfo">Blog Preview list:</h4>
       {/* posts currently contain title,author,post content */}
       {/* eventually, they will be formatted nicer and will contain more metadata */}
-      {/* 
-          posts are clickable and take the user to the specific post only the 
-          post doesn't display information properly becasue we couldn't properly 
-          pass the post object and read from it in the full post page 
-      */}
+      {/* posts are clickable and take the user to the specific post*/}
       <ul id="PrevList">
         {posts.map((post) => {
             if(post.attributes.username === Parse.User.current()?.get('username')){
