@@ -39,7 +39,7 @@ const AuthRegister = () => {
         setAdd(false);
       });
     }
-  }, [newUser, add]);
+  }, [newUser, add, navigate]);
 
   const onChangeHandler = (e) => {
     e.preventDefault();
