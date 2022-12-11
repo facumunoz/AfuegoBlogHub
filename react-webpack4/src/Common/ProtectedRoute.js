@@ -1,22 +1,20 @@
 import React from "react";
-import { Navigate, useNavigate } from "react-router-dom";
 import { checkUser } from "../Components/Auth/AuthService";
+import AuthModule from "../Components/Auth/Auth.js";
 import './../styles.css';
 
 // You can pass props using the spread operator to throw them on an object if there are too many to break out
 const ProtectedRoute = ({ element: Component, ...rest }) => {
   console.log("element: ", Component);
-  const navigate = useNavigate();
-  const goBackHandler = () => {
-    navigate("/auth");
-  };
+  // If the user is logged in, return the desired component
   if (checkUser()) {
     return <Component />;
   } else {
+    // If the user is not logged in, present an unauthorized message and load the auth module
     return (
       <div>
-        <h4 id="errorText">Unauthorized!</h4> 
-        <button onClick={goBackHandler} id="submitButton">Login or Register Here</button>
+        <p>Unauthorized, please log in or register</p>
+        <AuthModule/>
       </div>
     );
   }
